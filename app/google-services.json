@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "667853992509",
+    "project_id": "musicschoolandroidclient",
+    "storage_bucket": "musicschoolandroidclient.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667853992509:android:5b01ef2c4b253e6fbb7054",
+        "android_client_info": {
+          "package_name": "com.mlex0.musicschoolandroidclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667853992509-l46r2b3421i757vhok17cmiop709pa8u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA44ruuWCJ3P56Ac1P_tIfK0JnaPWDSM5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667853992509-l46r2b3421i757vhok17cmiop709pa8u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

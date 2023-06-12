@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SoundWave Academy</string>
+    <string name="schedule">Расписание</string>
+    <string name="chats">Чаты</string>
+    <string name="marks">Оценки</string>
+    <string name="tuner">Тюнер</string>
+    <string name="profile">Профиль</string>
+</resources>
