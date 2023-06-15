@@ -11,9 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.model.LazyHeaders;
 import com.mlex0.musicschoolandroidclient.Classes.Constants;
 import com.mlex0.musicschoolandroidclient.Model.Chat;
 import com.mlex0.musicschoolandroidclient.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -55,7 +58,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         }
         else {
-            Glide.with(mContext).load(imageurl).into(holder.profile_image);
+            String rightPath = imageurl.toString().replace("uploads\\", "");
+            String lastPath = Constants.ApiUrl.replace("api/", "") + "uploads/" + rightPath;;
+
+            GlideUrl glideUrl = new GlideUrl(lastPath, new LazyHeaders.Builder()
+                    .addHeader("Authorization", "Bearer " + Constants.UserToken)
+                    .build());
+
+            Glide.with(mContext).load(glideUrl).into(holder.profile_image);
         }
 
         if(position==mChat.size()-1){

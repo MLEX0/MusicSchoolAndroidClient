@@ -180,8 +180,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textViewMarksTitle"
@@ -254,12 +253,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="gone">
+            tools:visibility="visible">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -270,25 +270,16 @@
                     android:padding="8dp">
 
                     <TextView
-                        android:id="@+id/tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
                         android:text="Профиль"
                         android:textColor="@color/white"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tv"
-                        android:layout_centerHorizontal="true"
-                        android:text="(Нажмите для изменения картинки профиля...)"
-                        android:textColor="@color/white"
-                        android:textStyle="italic" />
-
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/profile_image"
+                        android:id="@+id/profile_image_main"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_centerHorizontal="true"
@@ -296,10 +287,10 @@
                         android:src="@drawable/bottom_navigation_profile_icon" />
 
                     <TextView
-                        android:id="@+id/username"
+                        android:id="@+id/profile_username_main"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/profile_image"
+                        android:layout_below="@+id/profile_image_main"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="20dp"
@@ -309,10 +300,10 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/email"
+                        android:id="@+id/email_main"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/username"
+                        android:layout_below="@+id/profile_username_main"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
@@ -361,6 +352,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@color/background"
+                android:onClick="GoBackOnClick"
                 android:src="@drawable/exit_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

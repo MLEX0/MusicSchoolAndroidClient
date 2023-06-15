@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -269,6 +270,10 @@ public class TunerActivity extends AppCompatActivity {
         if (!permissionRequest.isEmpty()){
             permissionResultLauncher.launch(permissionRequest.toArray(new String[0]));
         }
+    }
+
+    public void GoBackOnClick(View view){
+        finish();
     }
 
 }

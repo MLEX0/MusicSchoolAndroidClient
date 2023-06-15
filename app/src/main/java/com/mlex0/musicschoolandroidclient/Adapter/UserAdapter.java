@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.model.LazyHeaders;
+import com.mlex0.musicschoolandroidclient.Classes.Constants;
 import com.mlex0.musicschoolandroidclient.MessageActivity;
 import com.mlex0.musicschoolandroidclient.Model.User;
 import com.mlex0.musicschoolandroidclient.R;
@@ -47,7 +50,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                 holder.profile_image.setImageResource(R.drawable.bottom_navigation_profile_icon);
             }
             else {
-                Glide.with(mContext).load(user.getImageURL()).into(holder.profile_image);
+                GlideUrl glideUrl = new GlideUrl(user.getImageURL(), new LazyHeaders.Builder()
+                        .addHeader("Authorization", "Bearer " + Constants.UserToken)
+                        .build());
+
+                Glide.with(mContext).load(glideUrl).into(holder.profile_image);
             }
         } else {
             holder.profile_image.setImageResource(R.drawable.bottom_navigation_profile_icon);
@@ -76,7 +83,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            username=itemView.findViewById(R.id.username);
+            username=itemView.findViewById(R.id.profile_username);
             profile_image=itemView.findViewById(R.id.profile_image);
         }
     }

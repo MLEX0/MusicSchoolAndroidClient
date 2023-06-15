@@ -21,6 +21,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.model.LazyHeaders;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -85,7 +87,7 @@ public class MessageActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         profile_image=findViewById(R.id.profile_image);
-        username=findViewById(R.id.username);
+        username=findViewById(R.id.profile_username);
         btn_send=findViewById(R.id.btn_send);
         text_send=findViewById(R.id.text_send);
 
@@ -129,7 +131,11 @@ public class MessageActivity extends AppCompatActivity {
                             profile_image.setImageResource(R.drawable.bottom_navigation_profile_icon);
                         }
                         else {
-                            Glide.with(getApplicationContext()).load(user.getImageURL()).into(profile_image);
+                            GlideUrl glideUrl = new GlideUrl(user.getImageURL(), new LazyHeaders.Builder()
+                                    .addHeader("Authorization", "Bearer " + Constants.UserToken)
+                                    .build());
+
+                            Glide.with(getApplicationContext()).load(glideUrl).into(profile_image);
                         }
                         readMessages(Constants.UserId,userid,user.getImageURL());
                     }

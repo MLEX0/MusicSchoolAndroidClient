@@ -27,8 +27,9 @@ public class User {
             if(UserImage.equals("") || UserImage.equals("NULL")){
                 return "default";
             }
-            String rightPath = toString().replace("uploads\\", "");
-            return Constants.ApiUrl.replace("api/", "") + "uploads/" + rightPath;
+            String rightPath = UserImage.toString().replace("uploads\\", "");
+            String lastPath = Constants.ApiUrl.replace("api/", "") + "uploads/" + rightPath;;
+            return lastPath;
         }
 
         return "default";
