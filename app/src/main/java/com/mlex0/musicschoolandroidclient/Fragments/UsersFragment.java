@@ -69,7 +69,22 @@ public class UsersFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                //search_users(charSequence.toString().toLowerCase());
+                String searchText = charSequence.toString().toLowerCase();
+                List<User> filteredUsers = new ArrayList<>();
+
+                for (User user : mUsers) {
+                    if (user.Email.toLowerCase().contains(searchText)) {
+                        filteredUsers.add(user);
+                    }
+                }
+                if(!searchText.isEmpty()) {
+                    userAdapter=new UserAdapter(getContext(),filteredUsers,false);
+                    recyclerView.setAdapter(userAdapter);
+                }
+                else {
+                    mUsers=new ArrayList<>();
+                    readUsers();
+                }
             }
 
             @Override

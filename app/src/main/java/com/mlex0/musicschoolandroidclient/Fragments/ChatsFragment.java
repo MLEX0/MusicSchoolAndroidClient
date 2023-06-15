@@ -82,7 +82,6 @@ public class ChatsFragment extends Fragment {
         return view;
     }
 
-    //ChangeToDataBaseApiQuery
     private void chatList() {
         mUsers=new ArrayList<>();
 
